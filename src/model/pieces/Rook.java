@@ -13,6 +13,6 @@ public class Rook extends Piece {
 
     @Override
     public List<Position> getLegalMoves(Board board) {
-        return board.getLinearMoves(this, true, false);
+        return board.getLinearMoves(this, false, true);
     }
 }

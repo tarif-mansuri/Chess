@@ -21,7 +21,7 @@ public class King extends Piece {
             int y = i+dy[i];
             Position position = new Position(x, y);
             Piece p = board.getPiece(position);
-            if(board.isInBounds(position) && p == null || p.getColor() != getColor()) {
+            if(p != null && board.isInBounds(position) && p.getColor() != getColor()) {
                 legalMoves.add(position);
             }
         }

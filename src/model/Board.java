@@ -9,10 +9,13 @@ public class Board {
     private Piece[][] board = new Piece[8][8];
 
     public Piece getPiece(Position position) {
+        if(!isInBounds(position)) {
+            return null;
+        }
         return board[position.row][position.col];
     }
-    public void setPiece(Piece piece, Position position) {
-        board[position.row][position.col] = piece;
+    public void setPiece(Piece piece) {
+        board[piece.getPosition().row][piece.getPosition().col] = piece;
     }
 
     public void movePiece(Position from, Position to) {
