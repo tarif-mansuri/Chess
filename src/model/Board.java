@@ -19,9 +19,21 @@ public class Board {
     }
 
     public void movePiece(Position from, Position to) {
-        //check should have been done already before trigering movePiece
-        board[to.row][to.col] = board[from.row][from.col];
-        board[from.row][from.col] = null;
+        Piece piece = getPiece(from);
+        if(piece == null) {
+            return;
+        }
+        removePiece(piece);
+        Piece targetPiece = getPiece(to);
+        if(targetPiece != null) {
+            //Handle capture cases
+        }
+        piece.setPosition(to);
+        setPiece(piece);
+    }
+
+    public void removePiece(Piece piece) {
+        board[piece.getPosition().row][piece.getPosition().col] = null;
     }
 
    public boolean isInBounds(Position position) {
@@ -78,4 +90,18 @@ public class Board {
         }
         return moves;
    }
+
+    public void printBoard() {
+        for (int row = 0; row < 8; row++) {
+            for (int col = 0; col < 8; col++) {
+                Piece piece = board[row][col];
+                if (piece == null) {
+                    System.out.print(" . ");
+                } else {
+                    System.out.print(" " + piece.toString().charAt(0) + " ");
+                }
+            }
+            System.out.println("  <- Row " + row);
+        }
+    }
 }

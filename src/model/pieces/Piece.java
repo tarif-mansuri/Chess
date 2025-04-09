@@ -22,6 +22,10 @@ public abstract class Piece {
         return position;
     }
 
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
     public void moveTo(Position position){
         this.position = position;
     }
