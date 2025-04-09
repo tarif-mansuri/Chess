@@ -26,6 +26,6 @@ public abstract class Piece {
         this.position = position;
     }
 
-    public abstract List<Position> getLegalMoves(Board board);
+    public abstract List<Position> getLegalMoves(Board board, Piece piece);
 
 }
